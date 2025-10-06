@@ -1,0 +1,345 @@
+{
+    "widgets": [
+        {
+            "type": "text",
+            "x": 0,
+            "y": 0,
+            "width": 23,
+            "height": 1,
+            "properties": {
+                "markdown": "## Voice Metrics\n"
+            }
+        },
+        {
+            "type": "metric",
+            "x": 0,
+            "y": 1,
+            "width": 9,
+            "height": 7,
+            "properties": {
+                "view": "timeSeries",
+                "title": "Total Inbound + Outbound Calls (Sum)",
+                "region": "us-east-1",
+                "metrics": [
+                    [ "AWS/Connect", "CallsPerInterval", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "VoiceCalls", { "label": "", "period": 900, "stat": "Sum" } ]
+                ],
+                "yAxis": {
+                    "left": {
+                        "showUnits": false
+                    }
+                },
+                "legend": {
+                    "position": "hidden"
+                }
+            }
+        },
+        {
+            "type": "metric",
+            "x": 9,
+            "y": 1,
+            "width": 9,
+            "height": 7,
+            "properties": {
+                "view": "timeSeries",
+                "title": "Queue Size",
+                "region": "us-east-1",
+                "metrics": [
+                    [ "AWS/Connect", "QueueSize", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "BizOps_PSA", { "label": "BizOps_PSA", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "QueueSize", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "PSA_Chat_Tier2_Q", { "label": "PSA_Chat_Tier2_Q", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "QueueSize", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "BasicQueue", { "label": "BasicQueue", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "QueueSize", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "IT_APP_RHRP", { "label": "IT_APP_RHRP", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "QueueSize", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "RHRP_Leadline", { "label": "RHRP_Leadline", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "QueueSize", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "RHRP_Chat_CSA_Q", { "label": "RHRP_Chat_CSA_Q", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "QueueSize", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "PSA_Chat_Tier1_Q", { "label": "PSA_Chat_Tier1_Q", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "QueueSize", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "RHRP_CSA", { "label": "RHRP_CSA", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "QueueSize", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "RHRP_Chat_Support_Q", { "label": "RHRP_Chat_Support_Q", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "QueueSize", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "RHRP_CCR", { "label": "RHRP_CCR", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "QueueSize", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "RHRP_Chat_CCR_Q", { "label": "RHRP_Chat_CCR_Q", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "QueueSize", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "CSA_Lead", { "label": "CSA_Lead", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "QueueSize", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "RHRP_Chat_AH_Task_Q", { "label": "RHRP_Chat_AH_Task_Q", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "QueueSize", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "PSA_SI_HI", { "label": "PSA_SI_HI", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "QueueSize", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "BizOps_PSA_NATL_TierII", { "label": "BizOps_PSA_NATL_TierII", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "QueueSize", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "RHRP_Chat_LeadLine_Q", { "label": "RHRP_Chat_LeadLine_Q", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "QueueSize", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "BizOps_CCR", { "label": "BizOps_CCR", "period": 900, "stat": "Maximum" } ]
+                ],
+                "yAxis": {
+                    "left": {
+                        "showUnits": false
+                    }
+                }
+            }
+        },
+        {
+            "type": "metric",
+            "x": 18,
+            "y": 1,
+            "width": 6,
+            "height": 6,
+            "properties": {
+                "view": "gauge",
+                "title": "Concurrent Calls % (Max)",
+                "region": "us-east-1",
+                "metrics": [
+                    [ "AWS/Connect", "ConcurrentCallsPercentage", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "VoiceCalls", { "period": 900, "stat": "Maximum" } ]
+                ],
+                "yAxis": {
+                    "left": {
+                        "min": 0,
+                        "max": 100,
+                        "showUnits": false,
+                        "label": "%"
+                    }
+                },
+                "legend": {
+                    "position": "hidden"
+                }
+            }
+        },
+        {
+            "type": "metric",
+            "x": 0,
+            "y": 8,
+            "width": 9,
+            "height": 7,
+            "properties": {
+                "view": "timeSeries",
+                "title": "Concurrent Calls (Max)",
+                "region": "us-east-1",
+                "metrics": [
+                    [ "AWS/Connect", "ConcurrentCalls", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "VoiceCalls", { "label": "", "period": 900, "stat": "Maximum" } ]
+                ],
+                "yAxis": {
+                    "left": {
+                        "showUnits": false
+                    }
+                },
+                "legend": {
+                    "position": "hidden"
+                }
+            }
+        },
+        {
+            "type": "metric",
+            "x": 9,
+            "y": 8,
+            "width": 9,
+            "height": 7,
+            "properties": {
+                "view": "timeSeries",
+                "title": "Queue Wait Times",
+                "region": "us-east-1",
+                "metrics": [
+                    [ "AWS/Connect", "LongestQueueWaitTime", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "BizOps_PSA", { "label": "BizOps_PSA", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "LongestQueueWaitTime", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "PSA_Chat_Tier2_Q", { "label": "PSA_Chat_Tier2_Q", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "LongestQueueWaitTime", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "BasicQueue", { "label": "BasicQueue", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "LongestQueueWaitTime", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "IT_APP_RHRP", { "label": "IT_APP_RHRP", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "LongestQueueWaitTime", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "RHRP_Leadline", { "label": "RHRP_Leadline", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "LongestQueueWaitTime", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "RHRP_Chat_CSA_Q", { "label": "RHRP_Chat_CSA_Q", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "LongestQueueWaitTime", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "PSA_Chat_Tier1_Q", { "label": "PSA_Chat_Tier1_Q", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "LongestQueueWaitTime", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "RHRP_CSA", { "label": "RHRP_CSA", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "LongestQueueWaitTime", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "RHRP_Chat_Support_Q", { "label": "RHRP_Chat_Support_Q", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "LongestQueueWaitTime", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "RHRP_CCR", { "label": "RHRP_CCR", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "LongestQueueWaitTime", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "RHRP_Chat_CCR_Q", { "label": "RHRP_Chat_CCR_Q", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "LongestQueueWaitTime", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "CSA_Lead", { "label": "CSA_Lead", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "LongestQueueWaitTime", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "RHRP_Chat_AH_Task_Q", { "label": "RHRP_Chat_AH_Task_Q", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "LongestQueueWaitTime", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "PSA_SI_HI", { "label": "PSA_SI_HI", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "LongestQueueWaitTime", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "BizOps_PSA_NATL_TierII", { "label": "BizOps_PSA_NATL_TierII", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "LongestQueueWaitTime", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "RHRP_Chat_LeadLine_Q", { "label": "RHRP_Chat_LeadLine_Q", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "LongestQueueWaitTime", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "BizOps_CCR", { "label": "BizOps_CCR", "period": 900, "stat": "Maximum" } ]
+                ],
+                "yAxis": {
+                    "left": {
+                        "showUnits": false
+                    }
+                }
+            }
+        },
+        {
+            "type": "metric",
+            "x": 18,
+            "y": 7,
+            "width": 6,
+            "height": 6,
+            "properties": {
+                "view": "gauge",
+                "title": "Calls Exceeding Concurancy Limit (Sum)",
+                "region": "us-east-1",
+                "metrics": [
+                    [ "AWS/Connect", "CallsBreachingConcurrencyQuota", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "VoiceCalls", { "period": 900, "stat": "Sum" } ]
+                ],
+                "yAxis": {
+                    "left": {
+                        "min": 0,
+                        "max": 100,
+                        "showUnits": false,
+                        "label": ""
+                    }
+                },
+                "legend": {
+                    "position": "hidden"
+                }
+            }
+        },
+        {
+            "type": "metric",
+            "x": 0,
+            "y": 15,
+            "width": 9,
+            "height": 7,
+            "properties": {
+                "view": "timeSeries",
+                "title": "Throttled Calls (Sum)",
+                "region": "us-east-1",
+                "metrics": [
+                    [ "AWS/Connect", "ThrottledCalls", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "VoiceCalls", { "label": "", "period": 900, "stat": "Sum" } ]
+                ],
+                "yAxis": {
+                    "left": {
+                        "showUnits": false
+                    }
+                },
+                "legend": {
+                    "position": "hidden"
+                }
+            }
+        },
+        {
+            "type": "metric",
+            "x": 9,
+            "y": 15,
+            "width": 9,
+            "height": 7,
+            "properties": {
+                "view": "timeSeries",
+                "title": "Queue Capacity Exceeded",
+                "region": "us-east-1",
+                "metrics": [
+                    [ "AWS/Connect", "QueueCapacityExceededError", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "BizOps_PSA", { "label": "BizOps_PSA", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "QueueCapacityExceededError", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "PSA_Chat_Tier2_Q", { "label": "PSA_Chat_Tier2_Q", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "QueueCapacityExceededError", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "BasicQueue", { "label": "BasicQueue", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "QueueCapacityExceededError", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "IT_APP_RHRP", { "label": "IT_APP_RHRP", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "QueueCapacityExceededError", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "RHRP_Leadline", { "label": "RHRP_Leadline", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "QueueCapacityExceededError", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "RHRP_Chat_CSA_Q", { "label": "RHRP_Chat_CSA_Q", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "QueueCapacityExceededError", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "PSA_Chat_Tier1_Q", { "label": "PSA_Chat_Tier1_Q", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "QueueCapacityExceededError", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "RHRP_CSA", { "label": "RHRP_CSA", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "QueueCapacityExceededError", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "RHRP_Chat_Support_Q", { "label": "RHRP_Chat_Support_Q", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "QueueCapacityExceededError", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "RHRP_CCR", { "label": "RHRP_CCR", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "QueueCapacityExceededError", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "RHRP_Chat_CCR_Q", { "label": "RHRP_Chat_CCR_Q", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "QueueCapacityExceededError", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "CSA_Lead", { "label": "CSA_Lead", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "QueueCapacityExceededError", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "RHRP_Chat_AH_Task_Q", { "label": "RHRP_Chat_AH_Task_Q", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "QueueCapacityExceededError", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "PSA_SI_HI", { "label": "PSA_SI_HI", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "QueueCapacityExceededError", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "BizOps_PSA_NATL_TierII", { "label": "BizOps_PSA_NATL_TierII", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "QueueCapacityExceededError", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "RHRP_Chat_LeadLine_Q", { "label": "RHRP_Chat_LeadLine_Q", "period": 900, "stat": "Maximum" } ],
+                    [ "AWS/Connect", "QueueCapacityExceededError", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Queue", "QueueName", "BizOps_CCR", { "label": "BizOps_CCR", "period": 900, "stat": "Maximum" } ]
+                ],
+                "yAxis": {
+                    "left": {
+                        "showUnits": false
+                    }
+                }
+            }
+        },
+        {
+            "type": "metric",
+            "x": 18,
+            "y": 13,
+            "width": 6,
+            "height": 6,
+            "properties": {
+                "view": "gauge",
+                "title": "Missed Calls (Sum)",
+                "region": "us-east-1",
+                "metrics": [
+                    [ "AWS/Connect", "MissedCalls", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "VoiceCalls", { "period": 900, "stat": "Sum" } ]
+                ],
+                "yAxis": {
+                    "left": {
+                        "min": 0,
+                        "max": 100,
+                        "showUnits": false,
+                        "label": ""
+                    }
+                },
+                "legend": {
+                    "position": "hidden"
+                }
+            }
+        },
+        {
+            "type": "text",
+            "x": 0,
+            "y": 22,
+            "width": 9,
+            "height": 1,
+            "properties": {
+                "markdown": "## Chat Metrics\n"
+            }
+        },
+        {
+            "type": "text",
+            "x": 9,
+            "y": 22,
+            "width": 9,
+            "height": 1,
+            "properties": {
+                "markdown": "## Task Metrics\n"
+            }
+        },
+        {
+            "type": "metric",
+            "x": 0,
+            "y": 23,
+            "width": 9,
+            "height": 7,
+            "properties": {
+                "view": "timeSeries",
+                "title": "Conncurrent Active Chats (Max)",
+                "region": "us-east-1",
+                "metrics": [
+                    [ "AWS/Connect", "ConcurrentActiveChats", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Chats", { "label": "", "period": 900, "stat": "Maximum" } ]
+                ],
+                "yAxis": {
+                    "left": {
+                        "showUnits": false
+                    }
+                },
+                "legend": {
+                    "position": "hidden"
+                }
+            }
+        },
+        {
+            "type": "metric",
+            "x": 9,
+            "y": 23,
+            "width": 9,
+            "height": 7,
+            "properties": {
+                "view": "timeSeries",
+                "title": "Conncurrent Active Tasks (Max)",
+                "region": "us-east-1",
+                "metrics": [
+                    [ "AWS/Connect", "ConcurrentTasks", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Tasks", { "label": "", "period": 900, "stat": "Maximum" } ]
+                ],
+                "yAxis": {
+                    "left": {
+                        "showUnits": false
+                    }
+                },
+                "legend": {
+                    "position": "hidden"
+                }
+            }
+        },
+        {
+            "type": "text",
+            "x": 0,
+            "y": 30,
+            "width": 9,
+            "height": 4,
+            "properties": {
+                "markdown": "## Amazon Connect Instance: sandbox-lqtc \n \n### Notes \nAmazon Connect CloudWatch metrics are defined**[here](https://docs.aws.amazon.com/connect/latest/adminguide/monitoring-cloudwatch.html)**.\n\nUsing the **Actions** menu, set the Period Overide to the desired Interval. More info[here](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/change_dashboard_refresh_interval.html).\n"
+            }
+        }
+    ]
+}
