@@ -19,9 +19,9 @@
             "properties": {
                 "view": "timeSeries",
                 "title": "Total Inbound + Outbound Calls (Sum)",
-                "region": "us-east-1",
+                "region": "${region}",
                 "metrics": [
-                    [ "AWS/Connect", "CallsPerInterval", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "VoiceCalls", { "label": "", "period": 900, "stat": "Sum" } ]
+                    [ "AWS/Connect", "CallsPerInterval", "InstanceId", "${instance_id}", "MetricGroup", "VoiceCalls", { "label": "", "period": 900, "stat": "Sum" } ]
                 ],
                 "yAxis": {
                     "left": {
@@ -42,9 +42,9 @@
             "properties": {
                 "view": "timeSeries",
                 "title": "Queue Size",
-                "region": "us-east-1",
+                "region": "${region}",
                 "metrics": [
-                    [ { "expression": "SEARCH('{AWS/Connect,InstanceId,MetricGroup,QueueName} QueueSize InstanceId=\"67928c0f-2e8b-4852-bc9b-b6eec41127c9\" MetricGroup=\"Queue\"', 'Maximum', 900)", "id": "e1", "label": "${PROP('Dim.QueueName')}" } ]
+                    [ { "expression": "SEARCH('{AWS/Connect,InstanceId,MetricGroup,QueueName} QueueSize InstanceId=\"${instance_id}\" MetricGroup=\"Queue\"', 'Maximum', 900)", "id": "e1", "label": "$${PROP('Dim.QueueName')}" } ]
                 ],
                 "yAxis": {
                     "left": {
@@ -62,9 +62,9 @@
             "properties": {
                 "view": "gauge",
                 "title": "Concurrent Calls % (Max)",
-                "region": "us-east-1",
+                "region": "${region}",
                 "metrics": [
-                    [ "AWS/Connect", "ConcurrentCallsPercentage", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "VoiceCalls", { "period": 900, "stat": "Maximum" } ]
+                    [ "AWS/Connect", "ConcurrentCallsPercentage", "InstanceId", "${instance_id}", "MetricGroup", "VoiceCalls", { "period": 900, "stat": "Maximum" } ]
                 ],
                 "yAxis": {
                     "left": {
@@ -88,9 +88,9 @@
             "properties": {
                 "view": "timeSeries",
                 "title": "Concurrent Calls (Max)",
-                "region": "us-east-1",
+                "region": "${region}",
                 "metrics": [
-                    [ "AWS/Connect", "ConcurrentCalls", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "VoiceCalls", { "label": "", "period": 900, "stat": "Maximum" } ]
+                    [ "AWS/Connect", "ConcurrentCalls", "InstanceId", "${instance_id}", "MetricGroup", "VoiceCalls", { "label": "", "period": 900, "stat": "Maximum" } ]
                 ],
                 "yAxis": {
                     "left": {
@@ -111,9 +111,9 @@
             "properties": {
                 "view": "timeSeries",
                 "title": "Queue Wait Times",
-                "region": "us-east-1",
+                "region": "${region}",
                 "metrics": [
-                    [ { "expression": "SEARCH('{AWS/Connect,InstanceId,MetricGroup,QueueName} LongestQueueWaitTime InstanceId=\"67928c0f-2e8b-4852-bc9b-b6eec41127c9\" MetricGroup=\"Queue\"', 'Maximum', 900)", "id": "e2", "label": "${PROP('Dim.QueueName')}" } ]
+                    [ { "expression": "SEARCH('{AWS/Connect,InstanceId,MetricGroup,QueueName} LongestQueueWaitTime InstanceId=\"${instance_id}\" MetricGroup=\"Queue\"', 'Maximum', 900)", "id": "e2", "label": "$${PROP('Dim.QueueName')}" } ]
                 ],
                 "yAxis": {
                     "left": {
@@ -131,9 +131,9 @@
             "properties": {
                 "view": "gauge",
                 "title": "Calls Exceeding Concurancy Limit (Sum)",
-                "region": "us-east-1",
+                "region": "${region}",
                 "metrics": [
-                    [ "AWS/Connect", "CallsBreachingConcurrencyQuota", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "VoiceCalls", { "period": 900, "stat": "Sum" } ]
+                    [ "AWS/Connect", "CallsBreachingConcurrencyQuota", "InstanceId", "${instance_id}", "MetricGroup", "VoiceCalls", { "period": 900, "stat": "Sum" } ]
                 ],
                 "yAxis": {
                     "left": {
@@ -157,9 +157,9 @@
             "properties": {
                 "view": "timeSeries",
                 "title": "Throttled Calls (Sum)",
-                "region": "us-east-1",
+                "region": "${region}",
                 "metrics": [
-                    [ "AWS/Connect", "ThrottledCalls", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "VoiceCalls", { "label": "", "period": 900, "stat": "Sum" } ]
+                    [ "AWS/Connect", "ThrottledCalls", "InstanceId", "${instance_id}", "MetricGroup", "VoiceCalls", { "label": "", "period": 900, "stat": "Sum" } ]
                 ],
                 "yAxis": {
                     "left": {
@@ -180,9 +180,9 @@
             "properties": {
                 "view": "timeSeries",
                 "title": "Queue Capacity Exceeded",
-                "region": "us-east-1",
+                "region": "${region}",
                 "metrics": [
-                    [ { "expression": "SEARCH('{AWS/Connect,InstanceId,MetricGroup,QueueName} QueueCapacityExceededError InstanceId=\"67928c0f-2e8b-4852-bc9b-b6eec41127c9\" MetricGroup=\"Queue\"', 'Maximum', 900)", "id": "e3", "label": "${PROP('Dim.QueueName')}" } ]
+                    [ { "expression": "SEARCH('{AWS/Connect,InstanceId,MetricGroup,QueueName} QueueCapacityExceededError InstanceId=\"${instance_id}\" MetricGroup=\"Queue\"', 'Maximum', 900)", "id": "e3", "label": "$${PROP('Dim.QueueName')}" } ]
                 ],
                 "yAxis": {
                     "left": {
@@ -200,9 +200,9 @@
             "properties": {
                 "view": "gauge",
                 "title": "Missed Calls (Sum)",
-                "region": "us-east-1",
+                "region": "${region}",
                 "metrics": [
-                    [ "AWS/Connect", "MissedCalls", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "VoiceCalls", { "period": 900, "stat": "Sum" } ]
+                    [ "AWS/Connect", "MissedCalls", "InstanceId", "${instance_id}", "MetricGroup", "VoiceCalls", { "period": 900, "stat": "Sum" } ]
                 ],
                 "yAxis": {
                     "left": {
@@ -226,9 +226,9 @@
             "properties": {
                 "view": "timeSeries",
                 "title": "Packet Loss Rate (Avg)",
-                "region": "us-east-1",
+                "region": "${region}",
                 "metrics": [
-                    [ "AWS/Connect", "PacketLossRate", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "VoiceCalls", { "label": "", "period": 900, "stat": "Average" } ]
+                    [ "AWS/Connect", "PacketLossRate", "InstanceId", "${instance_id}", "MetricGroup", "VoiceCalls", { "label": "", "period": 900, "stat": "Average" } ]
                 ],
                 "yAxis": {
                     "left": {
@@ -239,6 +239,49 @@
                 },
                 "legend": {
                     "position": "hidden"
+                }
+            }
+        },
+        {
+            "type": "metric",
+            "x": 9,
+            "y": 22,
+            "width": 9,
+            "height": 7,
+            "properties": {
+                "view": "timeSeries",
+                "title": "Active Calls (Max)",
+                "region": "${region}",
+                "metrics": [
+                    [ "AWS/Connect", "ActiveCalls", "InstanceId", "${instance_id}", "MetricGroup", "VoiceCalls", { "label": "", "period": 900, "stat": "Maximum" } ]
+                ],
+                "yAxis": {
+                    "left": {
+                        "showUnits": false
+                    }
+                },
+                "legend": {
+                    "position": "hidden"
+                }
+            }
+        },
+        {
+            "type": "metric",
+            "x": 18,
+            "y": 22,
+            "width": 6,
+            "height": 7,
+            "properties": {
+                "view": "timeSeries",
+                "title": "Contact Flow Errors",
+                "region": "${region}",
+                "metrics": [
+                    [ { "expression": "SEARCH('{AWS/Connect,InstanceId,MetricGroup,ContactFlowName} ContactFlowErrors InstanceId=\"${instance_id}\" MetricGroup=\"ContactFlow\"', 'Sum', 900)", "id": "e4", "label": "$${PROP('Dim.ContactFlowName')}" } ]
+                ],
+                "yAxis": {
+                    "left": {
+                        "showUnits": false
+                    }
                 }
             }
         },
@@ -271,9 +314,9 @@
             "properties": {
                 "view": "timeSeries",
                 "title": "Conncurrent Active Chats (Max)",
-                "region": "us-east-1",
+                "region": "${region}",
                 "metrics": [
-                    [ "AWS/Connect", "ConcurrentActiveChats", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Chats", { "label": "", "period": 900, "stat": "Maximum" } ]
+                    [ "AWS/Connect", "ConcurrentActiveChats", "InstanceId", "${instance_id}", "MetricGroup", "Chats", { "label": "", "period": 900, "stat": "Maximum" } ]
                 ],
                 "yAxis": {
                     "left": {
@@ -294,9 +337,9 @@
             "properties": {
                 "view": "timeSeries",
                 "title": "Conncurrent Active Tasks (Max)",
-                "region": "us-east-1",
+                "region": "${region}",
                 "metrics": [
-                    [ "AWS/Connect", "ConcurrentTasks", "InstanceId", "67928c0f-2e8b-4852-bc9b-b6eec41127c9", "MetricGroup", "Tasks", { "label": "", "period": 900, "stat": "Maximum" } ]
+                    [ "AWS/Connect", "ConcurrentTasks", "InstanceId", "${instance_id}", "MetricGroup", "Tasks", { "label": "", "period": 900, "stat": "Maximum" } ]
                 ],
                 "yAxis": {
                     "left": {
@@ -315,7 +358,7 @@
             "width": 9,
             "height": 4,
             "properties": {
-                "markdown": "## Amazon Connect Instance: sandbox-lqtc \n \n### Notes \nAmazon Connect CloudWatch metrics are defined**[here](https://docs.aws.amazon.com/connect/latest/adminguide/monitoring-cloudwatch.html)**.\n\nUsing the **Actions** menu, set the Period Overide to the desired Interval. More info[here](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/change_dashboard_refresh_interval.html).\n"
+                "markdown": "## Amazon Connect Instance: ${instance_alias} \n \n### Notes \nAmazon Connect CloudWatch metrics are defined**[here](https://docs.aws.amazon.com/connect/latest/adminguide/monitoring-cloudwatch.html)**.\n\nUsing the **Actions** menu, set the Period Overide to the desired Interval. More info[here](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/change_dashboard_refresh_interval.html).\n"
             }
         }
     ]
