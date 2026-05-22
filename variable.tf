@@ -9,3 +9,16 @@ variable "log_bucket_name" {
   type        = string
   default     = ""
 }
+
+variable "alarm_email" {
+  description = "Email address to subscribe to the CloudWatch alarms SNS topic. Leave empty to create the topic without a subscription."
+  type        = string
+  default     = ""
+}
+
+variable "teams_webhook_url" {
+  description = "Microsoft Teams incoming webhook URL for alarm notifications. Leave empty to skip Lambda deployment."
+  type        = string
+  default     = ""
+  sensitive   = true
+}

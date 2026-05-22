@@ -10,7 +10,7 @@ Terraform project that auto-discovers Amazon Connect instances across multiple A
 4. The module creates an `aws_cloudwatch_dashboard` resource.
 5. `s3.tf` creates (or references) an S3 bucket that CloudWatch Logs is permitted to write export tasks to from each configured region.
 
-Dashboards are named `Amazon-Connect-Instance-Dashboard-<alias>` and deployed to the region where each instance lives.
+Dashboards are named `<alias>-connect-metrics-dashboard` and deployed to the region where each instance lives.
 
 ## Prerequisites
 

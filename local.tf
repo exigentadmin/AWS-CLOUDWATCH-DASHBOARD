@@ -15,13 +15,15 @@ locals {
 
   dashboards = {
     for alias, inst in local.target_instances :
-    "Amazon-Connect-Instance-Dashboard-${alias}" => {
-      dashboard_name = "Amazon-Connect-Instance-Dashboard-${alias}"
+    "${alias}-connect-metrics-dashboard" => {
+      dashboard_name = "${alias}-connect-metrics-dashboard"
       dashboard_body = templatefile("${path.module}/JSON/dashboard_body.tftpl", {
         instance_id    = inst.id
         instance_alias = alias
         region         = inst.region
       })
+      instance_id    = inst.id
+      instance_alias = alias
     }
   }
 }
