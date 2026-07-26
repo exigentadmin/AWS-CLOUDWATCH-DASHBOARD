@@ -24,6 +24,7 @@ locals {
       })
       instance_id    = inst.id
       instance_alias = alias
+      region         = inst.region
     }
   }
 }
