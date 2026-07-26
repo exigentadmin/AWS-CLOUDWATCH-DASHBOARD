@@ -11,7 +11,7 @@ Terraform project that auto-discovers Amazon Connect instances across multiple A
 5. `sns.tf` creates a `connect-cloudwatch-alarms` SNS topic in each configured region (CloudWatch alarm actions can only target a topic in the alarm's own region) and, when `alarm_email` is set, an email subscription per topic. When `teams_webhook_url` is set, `lambda.tf` deploys the `module/LAMBDA/SNS-TEAMS-WEBHOOK` module — a Python Lambda subscribed to every regional topic that posts a formatted MessageCard to a Microsoft Teams incoming webhook on every alarm state change.
 6. `s3.tf` creates (or references) an S3 bucket that CloudWatch Logs is permitted to write export tasks to from each configured region.
 
-Dashboards are named `<alias>-connect-metrics-dashboard` and alarms `<alias>-<metric>` (e.g. `hmsa-cc-dev-missed-calls`); both are created in the region where each instance lives, via the AWS provider's per-resource `region` attribute.
+Dashboards are named `<alias>-connect-metrics-dashboard` and alarms `<alias>-<metric>` (e.g. `default-org-cc-dev-missed-calls`); both are created in the region where each instance lives, via the AWS provider's per-resource `region` attribute.
 
 ## Prerequisites
 
@@ -73,15 +73,15 @@ To destroy all dashboards:
 terraform destroy
 ```
 
-## Current deployment (hmsa dev)
+## Example deployment (default-org dev)
 
-As of July 2026 this configuration is applied to account `170833414155` (state is local in `terraform.tfstate`; use the `170833414155_hmsa-uc-dev-admins` AWS profile):
+A typical deployment of this configuration for an organization (`default-org`) applied to account `123456789012` (state is local in `terraform.tfstate`; use an AWS profile with the permissions listed under Prerequisites, e.g. `123456789012_default-org-dev-admins`) looks like:
 
-- Instance: `hmsa-cc-dev` (`e7dbe8a6-c58d-4bcf-8398-78358c97c685`) in us-west-2, with its dashboard and all six alarms in that region
-- Notifications: `connect-cloudwatch-alarms` SNS topic in us-west-2 with a confirmed email subscription for `UCTeam@hmsa.com`; the Teams webhook Lambda is not deployed
-- Log export bucket: `connect-cloudwatch-logs-9704ebf0` (in us-east-1 — see the note under Logging and retention)
+- Instance: `default-org-cc-dev` in us-west-2, with its dashboard and all six alarms in that region
+- Notifications: `connect-cloudwatch-alarms` SNS topic in us-west-2 with a confirmed email subscription for `alerts@default-org.com`; the Teams webhook Lambda is not deployed
+- Log export bucket: `connect-cloudwatch-logs-<random-hex>` (in us-east-1 — see the note under Logging and retention)
 
-A CloudFormation port of this solution lives in the sibling repo `aws-cloudwatch-dashboard-cf/hmsa`. If this deployment moves to CloudFormation, follow that repo's "Migrating from the live Terraform deployment" README section — the stacks reuse the same resource names, so the Terraform-managed resources must be destroyed first.
+A CloudFormation port of this solution lives in the sibling repo `aws-cloudwatch-dashboard-cf/default-org`. If a deployment moves to CloudFormation, follow that repo's "Migrating from the live Terraform deployment" README section — the stacks reuse the same resource names, so the Terraform-managed resources must be destroyed first.
 
 ## Variables
 
@@ -146,7 +146,7 @@ When `log_bucket_name` is left empty, Terraform creates a new S3 bucket named `c
 
 The `PutObject` policy condition (`s3:x-amz-acl: bucket-owner-full-control`) ensures the bucket owner retains full control of objects written by the CloudWatch Logs service.
 
-Note: the bucket is created in the default provider region (`us-east-1`, set in `terraform.tf`), regardless of `aws_regions`. CloudWatch log export tasks require the destination bucket to be in the same region as the log group, so exporting log groups from other regions (including the currently deployed us-west-2 instance) needs a bucket in that region — a known limitation of this configuration.
+Note: the bucket is created in the default provider region (`us-east-1`, set in `terraform.tf`), regardless of `aws_regions`. CloudWatch log export tasks require the destination bucket to be in the same region as the log group, so exporting log groups from other regions (e.g. an instance deployed in us-west-2) needs a bucket in that region — a known limitation of this configuration.
 
 ### Bring your own bucket
 
