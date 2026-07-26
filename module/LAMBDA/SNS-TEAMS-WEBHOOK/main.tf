@@ -39,15 +39,19 @@ resource "aws_lambda_function" "teams_webhook" {
 }
 
 resource "aws_lambda_permission" "sns" {
-  statement_id  = "AllowSNSInvoke"
+  for_each      = var.sns_topic_arns
+  statement_id  = "AllowSNSInvoke-${each.key}"
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.teams_webhook.function_name
   principal     = "sns.amazonaws.com"
-  source_arn    = var.sns_topic_arn
+  source_arn    = each.value
 }
 
+# The subscription must be created in each topic's region.
 resource "aws_sns_topic_subscription" "lambda" {
-  topic_arn = var.sns_topic_arn
+  for_each  = var.sns_topic_arns
+  region    = each.key
+  topic_arn = each.value
   protocol  = "lambda"
   endpoint  = aws_lambda_function.teams_webhook.arn
 }

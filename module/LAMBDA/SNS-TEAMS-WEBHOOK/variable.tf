@@ -10,7 +10,7 @@ variable "teams_webhook_url" {
   sensitive   = true
 }
 
-variable "sns_topic_arn" {
-  description = "ARN of the SNS topic to subscribe to."
-  type        = string
+variable "sns_topic_arns" {
+  description = "Map of region to SNS topic ARN. The Lambda is subscribed to every topic; SNS delivers to Lambda across regions."
+  type        = map(string)
 }

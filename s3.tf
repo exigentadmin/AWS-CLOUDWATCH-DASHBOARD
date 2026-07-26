@@ -58,7 +58,7 @@ data "aws_iam_policy_document" "cloudwatch_logs_s3" {
 
     principals {
       type        = "Service"
-      identifiers = ["logs.us-east-1.amazonaws.com", "logs.us-west-2.amazonaws.com"]
+      identifiers = [for region in var.aws_regions : "logs.${region}.amazonaws.com"]
     }
 
     actions   = ["s3:GetBucketAcl"]
@@ -71,7 +71,7 @@ data "aws_iam_policy_document" "cloudwatch_logs_s3" {
 
     principals {
       type        = "Service"
-      identifiers = ["logs.us-east-1.amazonaws.com", "logs.us-west-2.amazonaws.com"]
+      identifiers = [for region in var.aws_regions : "logs.${region}.amazonaws.com"]
     }
 
     actions   = ["s3:PutObject"]

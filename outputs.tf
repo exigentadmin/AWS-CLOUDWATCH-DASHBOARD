@@ -8,9 +8,9 @@ output "dashboard_arns" {
   value       = { for k, v in module.cloudwatch_dashboard : k => v.dashboard_arn }
 }
 
-output "alarm_sns_topic_arn" {
-  description = "ARN of the SNS topic used for CloudWatch alarm notifications."
-  value       = aws_sns_topic.connect_alarms.arn
+output "alarm_sns_topic_arns" {
+  description = "Map of region to the ARN of the SNS topic used for CloudWatch alarm notifications in that region."
+  value       = { for region, topic in aws_sns_topic.connect_alarms : region => topic.arn }
 }
 
 output "log_bucket_name" {

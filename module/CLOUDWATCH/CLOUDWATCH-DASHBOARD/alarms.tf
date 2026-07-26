@@ -6,6 +6,7 @@ locals {
 }
 
 resource "aws_cloudwatch_metric_alarm" "concurrent_calls_pct" {
+  region              = var.region
   alarm_name          = "${var.instance_alias}-concurrent-calls-pct"
   alarm_description   = "Concurrent calls percentage exceeds 80% for ${var.instance_alias}"
   namespace           = "AWS/Connect"
@@ -23,6 +24,7 @@ resource "aws_cloudwatch_metric_alarm" "concurrent_calls_pct" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "missed_calls" {
+  region              = var.region
   alarm_name          = "${var.instance_alias}-missed-calls"
   alarm_description   = "More than 5 missed calls in the past hour for ${var.instance_alias}"
   namespace           = "AWS/Connect"
@@ -40,6 +42,7 @@ resource "aws_cloudwatch_metric_alarm" "missed_calls" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "calls_breaching_quota" {
+  region              = var.region
   alarm_name          = "${var.instance_alias}-calls-breaching-quota"
   alarm_description   = "Calls exceeding concurrency quota for ${var.instance_alias}"
   namespace           = "AWS/Connect"
@@ -57,6 +60,7 @@ resource "aws_cloudwatch_metric_alarm" "calls_breaching_quota" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "throttled_calls" {
+  region              = var.region
   alarm_name          = "${var.instance_alias}-throttled-calls"
   alarm_description   = "Throttled calls detected for ${var.instance_alias}"
   namespace           = "AWS/Connect"
@@ -74,6 +78,7 @@ resource "aws_cloudwatch_metric_alarm" "throttled_calls" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "packet_loss_rate" {
+  region              = var.region
   alarm_name          = "${var.instance_alias}-packet-loss-rate"
   alarm_description   = "Average packet loss rate exceeds 1% for ${var.instance_alias}"
   namespace           = "AWS/Connect"
@@ -91,6 +96,7 @@ resource "aws_cloudwatch_metric_alarm" "packet_loss_rate" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "contact_flow_errors" {
+  region              = var.region
   alarm_name          = "${var.instance_alias}-contact-flow-errors"
   alarm_description   = "More than 5 contact flow errors in the past hour for ${var.instance_alias}"
   comparison_operator = "GreaterThanThreshold"
